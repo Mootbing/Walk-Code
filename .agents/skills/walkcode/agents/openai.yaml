@@ -1,0 +1,4 @@
+interface:
+  display_name: "WalkCode"
+  short_description: "Hand off local agent work to Railway Claude Code"
+  default_prompt: "/walkcode hand off this task to the Railway worker"

@@ -1,0 +1,12 @@
+.git
+.next
+.walk
+.walk-data
+.walk-sync
+.walk-toolchain
+node_modules
+npm-debug.log*
+.env*
+coverage
+out
+dist
