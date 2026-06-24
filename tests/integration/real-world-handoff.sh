@@ -66,7 +66,7 @@ cat > .walk/current-summary.md <<'SUMMARY'
 Finish the real-world handoff fixture by adding a cloud result file.
 SUMMARY
 
-WALK_BASE_URL="$BASE_URL" WALK_POLL_MS=500 node "$ROOT/scripts/walkctl.mjs" handoff --summary-file .walk/current-summary.md --title "Real world fixture"
+WALK_BASE_URL="$BASE_URL" WALK_POLL_MS=500 npm run handoff -- --summary-file .walk/current-summary.md --title "Real world fixture"
 
 test -f cloud-result.txt
 grep -q "Cloud worker finished" cloud-result.txt

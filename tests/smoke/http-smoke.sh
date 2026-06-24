@@ -33,6 +33,7 @@ curl -fsS "http://127.0.0.1:$PORT/" > "$HOME_HTML"
 grep -q "Enqueued by" "$HOME_HTML"
 grep -q "Repo" "$HOME_HTML"
 grep -q "Filter" "$HOME_HTML"
+grep -q "/handoff" "$HOME_HTML"
 curl -fsS "http://127.0.0.1:$PORT/api/jobs" | node -e "let s=''; process.stdin.on('data', d => s += d); process.stdin.on('end', () => { const data=JSON.parse(s); if (!Array.isArray(data.jobs)) process.exit(1); })"
 
 echo "http smoke ok"
