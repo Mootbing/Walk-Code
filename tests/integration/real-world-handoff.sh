@@ -2,7 +2,7 @@
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
-PATH="$ROOT/.walk-toolchain/node/bin:/usr/local/bin:/usr/bin:/bin:$PATH"
+PATH="$ROOT/.walk-toolchain/node/bin:/home/mootbing/.local/bin:/usr/local/bin:/usr/bin:/bin:$PATH"
 PORT="${WALK_REAL_PORT:-$((30000 + RANDOM % 20000))}"
 BASE_URL="http://127.0.0.1:$PORT"
 TMP="$(mktemp -d)"
@@ -66,7 +66,7 @@ cat > .walk/current-summary.md <<'SUMMARY'
 Finish the real-world handoff fixture by adding a cloud result file.
 SUMMARY
 
-WALK_BASE_URL="$BASE_URL" WALK_POLL_MS=500 node "$ROOT/scripts/walkctl.mjs" handoff --summary-file .walk/current-summary.md --title "Real world fixture"
+WALK_BASE_URL="$BASE_URL" WALK_POLL_MS=500 handoff --summary-file .walk/current-summary.md --title "Real world fixture"
 
 test -f cloud-result.txt
 grep -q "Cloud worker finished" cloud-result.txt

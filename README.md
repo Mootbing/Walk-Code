@@ -1,6 +1,6 @@
 # WalkCode
 
-WalkCode is an internal handoff bridge for local coding agents. When a user invokes `/walkcode`, the local agent writes a transfer summary, snapshots the repository into `walk-code/<branch>`, submits a job to the Next.js dashboard, and polls until the Railway worker finishes the task with Claude Code.
+WalkCode is an internal handoff bridge for local coding agents. When a user invokes `/handoff`, the local agent writes a transfer summary, snapshots the repository into `walk-code/<branch>`, submits a job to the Next.js dashboard, and polls until the Railway worker finishes the task with Claude Code.
 
 ## Local development
 
@@ -20,7 +20,7 @@ To hand off the current repository state:
 ```bash
 mkdir -p .walk
 printf "Finish the task described in the current session.\n" > .walk/current-summary.md
-npm run walkcode -- handoff --summary-file .walk/current-summary.md
+npm run handoff -- --summary-file .walk/current-summary.md
 ```
 
 ## Railway services

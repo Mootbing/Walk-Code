@@ -13,11 +13,13 @@ function usage() {
   console.log(`WalkCode
 
 Usage:
+  handoff --summary-file .walk/current-summary.md [--enqueued-by name]
   walkcode handoff --summary-file .walk/current-summary.md [--enqueued-by name]
   walkcode sync <job-id>
   walkcode wait <job-id>
 
 Project-local fallback:
+  npm run handoff -- --summary-file .walk/current-summary.md
   npm run walkcode -- handoff --summary-file .walk/current-summary.md
   npm run walkcode -- sync <job-id>
   npm run walkcode -- wait <job-id>
@@ -414,7 +416,8 @@ async function sync(jobId) {
 }
 
 async function main() {
-  const command = process.argv[2];
+  const invokedAsHandoff = path.basename(process.argv[1] ?? "") === "handoff";
+  const command = invokedAsHandoff ? "handoff" : process.argv[2];
 
   if (command === "handoff") return handoff();
   if (command === "wait") {

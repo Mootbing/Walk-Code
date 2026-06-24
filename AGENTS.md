@@ -6,10 +6,10 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 # WalkCode
 
-When the user says `/walk`, `/walkcode`, or asks to hand off the active task to Railway, stop normal work and use the WalkCode skill/workflow. Write `.walk/current-summary.md`, then run:
+When the user says `/handoff` or asks to hand off the active task to Railway, stop normal work and use the WalkCode handoff workflow. Write `.walk/current-summary.md`, then run:
 
 ```bash
-npm run walkcode -- handoff --summary-file .walk/current-summary.md
+npm run handoff -- --summary-file .walk/current-summary.md
 ```
 
 The command handles branch upload, polling, auto-sync, and cloud conflict escalation.
