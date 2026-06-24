@@ -331,7 +331,7 @@ export function JobsTable({ jobs }: Props) {
             <span>No jobs match the current filters.</span>
           ) : (
             <span>
-              No handoffs yet. Run <span className="font-mono text-zinc-300">/walkcode</span> from Claude or the WalkCode skill from Codex.
+              No handoffs yet. Run <span className="font-mono text-zinc-300">/handoff</span> from Claude or the WalkCode skill from Codex.
             </span>
           )}
         </div>

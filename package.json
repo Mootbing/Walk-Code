@@ -13,6 +13,7 @@
     "test:smoke": "bash tests/smoke/http-smoke.sh",
     "test:real": "bash tests/integration/real-world-handoff.sh",
     "worker": "node scripts/worker.mjs",
+    "handoff": "node scripts/walkctl.mjs handoff",
     "walkcode": "node scripts/walkctl.mjs"
   },
   "dependencies": {
