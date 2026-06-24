@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { githubBranchUrl, githubCommitUrl } from "../../src/lib/git-links";
+import { githubBranchUrl, githubCommitUrl, repoLabel } from "../../src/lib/git-links";
 
 test("builds GitHub branch links for HTTPS remotes with slashy branch names", () => {
   assert.equal(
@@ -15,4 +15,11 @@ test("builds GitHub links for SSH remotes and skips unsupported remotes", () => 
     "https://github.com/Mootbing/Walk-Code/commit/1395b2e1c696390a58c08825fef61ef9c73cf9c8",
   );
   assert.equal(githubBranchUrl("https://example.com/Mootbing/Walk-Code.git", "main"), null);
+});
+
+test("builds compact repository labels", () => {
+  assert.equal(repoLabel("https://github.com/Mootbing/Walk-Code.git"), "Mootbing/Walk-Code");
+  assert.equal(repoLabel("git@github.com:Mootbing/Walk-Code.git"), "Mootbing/Walk-Code");
+  assert.equal(repoLabel("https://example.com/team/repo.git"), "team/repo");
+  assert.equal(repoLabel("/tmp/repo.git"), "/tmp/repo");
 });

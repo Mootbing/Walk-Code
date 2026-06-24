@@ -9,6 +9,19 @@ function githubPathFromRepoUrl(repoUrl: string) {
   return null;
 }
 
+export function repoLabel(repoUrl: string) {
+  const githubPath = githubPathFromRepoUrl(repoUrl);
+  if (githubPath) return githubPath;
+
+  try {
+    const parsed = new URL(repoUrl);
+    const pathLabel = parsed.pathname.replace(/^\/+/, "").replace(/\.git$/, "");
+    return pathLabel || parsed.hostname;
+  } catch {
+    return repoUrl.replace(/\.git$/, "") || "unknown";
+  }
+}
+
 function encodeBranchPath(branch: string) {
   return branch.split("/").map(encodeURIComponent).join("/");
 }
