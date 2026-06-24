@@ -48,3 +48,5 @@ The worker expects the Railway shell to already be authenticated for Claude Code
 ## Conflict loop
 
 `walkctl` waits for completion by default. When the job completes, it fetches `origin/walk-code/<branch>` and tries to merge it locally. If the local tree changed or Git reports conflicts, it pushes a `walk-code/conflicts/<job-id>-<branch>` snapshot and requeues the cloud job to resolve that state against the cloud result.
+
+WalkCode fake Claude touched this file.
