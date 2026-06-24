@@ -1,8 +1,8 @@
 ---
-description: Hand off the current Claude Code session to the Railway WalkCode worker when the user says /walkcode, asks to transfer work to cloud Claude Code, or wants Railway to finish and auto-sync the task.
+description: Hand off the current Claude Code session to the Railway WalkCode worker when the user says /handoff, asks to transfer work to cloud Claude Code, or wants Railway to finish and auto-sync the task.
 ---
 
-# WalkCode Handoff
+# Handoff
 
 Stop normal implementation work and prepare a transfer for the Railway worker.
 
@@ -12,7 +12,7 @@ Stop normal implementation work and prepare a transfer for the Railway worker.
 2. Run:
 
    ```bash
-   npm run walkcode -- handoff --summary-file .walk/current-summary.md
+   npm run handoff -- --summary-file .walk/current-summary.md
    ```
 
 3. Let the command poll until the Railway job finishes. It will fetch and merge the cloud result automatically. If local conflicts occur, it will push a conflict branch and requeue the cloud worker.
